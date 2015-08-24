@@ -8,6 +8,7 @@
       type="text"
       class="ui-grid-filter-input ui-grid-filter-input-{{$index}}"
       ng-model="colFilter.term"
+      ng-model-options="{'updateOn': '{{colFilter.debounce.event}}', debounce : {{colFilter.debounce.value}} }"
       ng-attr-placeholder="{{colFilter.placeholder || ''}}"
       aria-label="{{colFilter.ariaLabel || aria.defaultFilterLabel}}" />
 

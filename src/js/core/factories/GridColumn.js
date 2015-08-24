@@ -728,7 +728,8 @@ angular.module('ui.grid')
      *       flags: { caseSensitive: false },
      *       type: uiGridConstants.filter.SELECT,
      *       selectOptions: [ { value: 1, label: 'male' }, { value: 2, label: 'female' } ],
-     *       disableCancelFilterButton: true
+     *       disableCancelFilterButton: true,
+     *       debounce : { event: 'default blur', value: { default: 500, blur: 0}}
      *     }
      *   }
      * ]; </pre>
@@ -777,6 +778,10 @@ angular.module('ui.grid')
         }
         if (typeof(defaultFilters[index].selectOptions) !== 'undefined') {
           filter.selectOptions = defaultFilters[index].selectOptions;
+        }
+
+        if (typeof(defaultFilters[index].debounce) !=='undefined') {
+          filter.debounce = defaultFilters[index].debounce;
         }
       });
     }
